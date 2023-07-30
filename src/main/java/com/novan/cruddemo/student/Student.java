@@ -3,6 +3,7 @@ package com.novan.cruddemo.student;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table(name = "Student")
@@ -72,7 +73,7 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return Period.between(dateOfBirth, LocalDate.now()).getYears();
     }
 
     public void setAge(int age) {
