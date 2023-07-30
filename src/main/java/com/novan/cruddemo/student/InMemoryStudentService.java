@@ -8,22 +8,27 @@ import java.util.List;
 @Service
 public class InMemoryStudentService implements StudentService{
     @Override
+    public Student save(Student s) {
+        return null;
+    }
+
+    @Override
     public List<Student> findAllStudents() {
-        return List.of(
-                new Student(
-                        "Novan",
-                        "Ariadi",
-                        LocalDate.now(),
-                        "novan@mail.com",
-                        40
-                ),
-                new Student(
-                        "Ali",
-                        "Nafiah",
-                        LocalDate.now(),
-                        "ali@mail.com",
-                        42
-                )
-        );
+        return null;
+    }
+
+    @Override
+    public Student findByEmail(String email) {
+        return null;
+    }
+
+    @Override
+    public Student update(Student s) {
+        return null;
+    }
+
+    @Override
+    public void delete(String email) {
+
     }
 }
