@@ -38,12 +38,12 @@ jobs:
           mvn -B package --file pom.xml
 
       - name: Build docker image
-        uses: actions/build-push-action@v2
+        uses: docker/build-push-action@v2
         with:
           context: .
           dockerfile: Dockerfile
           push: false
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-crud-api:$(date-'%Y-%m-%d%H-%M-%S')
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-crud-api:latest
 
       - name: Login to dockerhub
         uses: docker/login-action@v1
@@ -52,9 +52,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
 
       - name: Push to dockerhub
-        uses: actions/build-push-action@v2
+        uses: docker/build-push-action@v2
         with:
           context: .
           dockerfile: Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-crud-api:$(date-'%Y-%m-%d%H-%M-%S')
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-crud-api:latest
