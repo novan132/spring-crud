@@ -1,12 +1,24 @@
 package com.novan.cruddemo.student;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "Student")
 public class Student {
+    @Id
+    @GeneratedValue
+    private Integer id;
+
+
+
     private String firstname;
     private String lastname;
     private LocalDate dateOfBirth;
+    @Column(unique = true)
     private String email;
+    @Transient
     private int age;
 
     public Student() {}
@@ -17,6 +29,14 @@ public class Student {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.age = age;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFirstname() {
